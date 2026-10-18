@@ -1,0 +1,37 @@
+[
+  {
+    "name": "video.zip.001",
+    "bytes": 96000000,
+    "sha256": "19f31fd6969bef701581e1e06b25325e116f00dbd17a1f4f6591b022486722d4"
+  },
+  {
+    "name": "video.zip.002",
+    "bytes": 96000000,
+    "sha256": "c85400c85a03341aa718b939b1d21f09416b1cbdbf0b1f2501793db5fcc6eb29"
+  },
+  {
+    "name": "video.zip.003",
+    "bytes": 96000000,
+    "sha256": "1dd1f16479f9c62da6e3584cc1902246d201156147f3066bd933f39e092e77f9"
+  },
+  {
+    "name": "video.zip.004",
+    "bytes": 96000000,
+    "sha256": "af86be300b2ff033278a1514f34f4692c821156453d6fdf49c50cdac3c48ba12"
+  },
+  {
+    "name": "video.zip.005",
+    "bytes": 96000000,
+    "sha256": "01efb3c078364f4276b056603da4d925143cb04bc280a7d7319221da9d017599"
+  },
+  {
+    "name": "video.zip.006",
+    "bytes": 96000000,
+    "sha256": "7736f10d11bf1068d861be5c157c77ac0467d445138cefce38002409e7ff8fc2"
+  },
+  {
+    "name": "video.zip.007",
+    "bytes": 65995569,
+    "sha256": "1bdc1ac7d31b97f3ff667ee9539c5265b00654454da3ba5b87b7d2e28e7c317a"
+  }
+]

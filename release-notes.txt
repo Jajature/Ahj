@@ -1,0 +1,7 @@
+Completed Eustace Conway documentary: 1920x1080, 30 fps, approximately 20 minutes 47 seconds.
+
+video-protected.zip contains the complete video, English SRT subtitles and editorial notes, protected with AES-256 ZIP encryption. Obtain the password from the original owner chat. It is not included in this repository or release.
+
+Extract using a recent version of 7-Zip or WinRAR. Windows' built-in ZIP extractor may not support this encryption.
+
+SHA256SUMS verifies the downloaded encrypted archive.

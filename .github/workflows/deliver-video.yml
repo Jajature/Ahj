@@ -1,0 +1,48 @@
+name: Deliver encrypted documentary
+
+on:
+  push:
+    branches:
+      - video-delivery-20261019
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      DELIVERY_SHA: ${{ github.sha }}
+      DELIVERY_REPO: ${{ github.repository }}
+      DELIVERY_TAG: eustace-video-20261019
+    steps:
+      - name: Fetch the exact delivery commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git init delivery-source
+          git -C delivery-source remote add origin "https://github.com/${DELIVERY_REPO}.git"
+          git -C delivery-source fetch --depth=1 origin "${DELIVERY_SHA}"
+          git -C delivery-source checkout --detach FETCH_HEAD
+      - name: Reassemble and verify the encrypted archive
+        shell: bash
+        working-directory: delivery-source
+        run: |
+          set -euo pipefail
+          cat payload/video.zip.001 payload/video.zip.002 payload/video.zip.003 payload/video.zip.004 payload/video.zip.005 payload/video.zip.006 payload/video.zip.007 > video-protected.zip
+          sha256sum --check payload/archive.sha256
+          cp payload/archive.sha256 SHA256SUMS
+      - name: Publish the encrypted archive as one downloadable file
+        shell: bash
+        working-directory: delivery-source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release create "${DELIVERY_TAG}" video-protected.zip SHA256SUMS \
+            --repo "${DELIVERY_REPO}" \
+            --target "${DELIVERY_SHA}" \
+            --title "Eustace Conway documentary - encrypted delivery" \
+            --notes-file release-notes.txt \
+            --latest=false
